@@ -1,0 +1,19 @@
+<form method="post">
+    {% for i in range(1, 9) %}
+    <label for="q{{ i }}">Close-ended Question {{ i }}:</label>
+    <select name="q{{ i }}" required>
+        <option value="strongly disagree">Strongly Disagree</option>
+        <option value="disagree">Disagree</option>
+        <option value="neutral">Neutral</option>
+        <option value="agree">Agree</option>
+        <option value="strongly agree">Strongly Agree</option>
+    </select><br><br>
+    {% endfor %}
+    
+    {% for i in range(1, 7) %}
+    <label for="oq{{ i }}">Open-ended Question {{ i }}:</label>
+    <textarea name="oq{{ i }}" required></textarea><br><br>
+    {% endfor %}
+    
+    <input type="submit" value="Submit">
+</form>

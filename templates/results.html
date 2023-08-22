@@ -1,0 +1,47 @@
+<h2>Survey Results</h2>
+<div id="plotly_graph"></div>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+    var graphs = {{graphJSON|safe}};
+    Plotly.newPlot('plotly_graph', graphs.data, graphs.layout);
+</script>
+
+<h3>Close-ended Responses:</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Question Number</th>
+            <th>Answer</th>
+            <th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i, (answer, score) in close_ended|enumerate %}
+            <tr>
+                <td>{{ i + 1 }}</td>
+                <td>{{ answer }}</td>
+                <td>{{ score }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Open-ended Responses:</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Question Number</th>
+            <th>Answer</th>
+            <th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i, (answer, score) in open_ended|enumerate %}
+            <tr>
+                <td>{{ i + 1 }}</td>
+                <td>{{ answer }}</td>
+                <td>{{ score }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
